@@ -109,7 +109,13 @@ export default function CartPage() {
                 <span>Razem</span>
                 <span>{(freeShipping ? total : total + 15).toFixed(2)} zł</span>
               </div>
-              <Button className="w-full mt-4 bg-rose-600 hover:bg-rose-700">
+              <Button 
+                className="w-full mt-4 bg-rose-600 hover:bg-rose-700" 
+                onClick={() => {
+                  // Redirect to Shopify checkout
+                  window.location.href = `https://${process.env.NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN}/cart`;
+                }}
+              >
                 Przejdź do płatności
               </Button>
             </div>
