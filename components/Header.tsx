@@ -2,8 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { ShoppingBag, Menu, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ShoppingBag, Menu } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { categories } from "@/lib/categories";
 
@@ -30,19 +29,15 @@ export default function Header() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <Button variant="ghost" size="icon" className="relative" asChild>
-            <Link href="/koszyk">
-              <ShoppingBag className="h-5 w-5" />
-              <span className="sr-only">Koszyk</span>
-            </Link>
-          </Button>
+          <Link href="/koszyk" className="inline-flex items-center justify-center rounded-lg text-sm font-medium transition-colors hover:bg-muted h-8 w-8 relative">
+            <ShoppingBag className="h-5 w-5" />
+            <span className="sr-only">Koszyk</span>
+          </Link>
 
           <Sheet open={open} onOpenChange={setOpen}>
-            <SheetTrigger asChild className="md:hidden">
-              <Button variant="ghost" size="icon">
-                <Menu className="h-5 w-5" />
-                <span className="sr-only">Menu</span>
-              </Button>
+            <SheetTrigger className="md:hidden inline-flex items-center justify-center rounded-lg text-sm font-medium transition-colors hover:bg-muted h-8 w-8">
+              <Menu className="h-5 w-5" />
+              <span className="sr-only">Menu</span>
             </SheetTrigger>
             <SheetContent side="right" className="w-72">
               <div className="flex flex-col gap-4 mt-8">
